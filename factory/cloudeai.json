@@ -1,0 +1,9 @@
+{
+	"name": "cloudeai",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "1161fd10-a02d-4a16-8058-6493e7fc3113",
+		"tenantId": "c3707a88-3e03-4045-8544-69c37d5c246b"
+	}
+}
