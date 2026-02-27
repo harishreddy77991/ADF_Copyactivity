@@ -1,0 +1,17 @@
+{
+	"name": "DS_FILE_LOOKUP",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Sou_ADLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "brongcontainer"
+			}
+		}
+	}
+}
