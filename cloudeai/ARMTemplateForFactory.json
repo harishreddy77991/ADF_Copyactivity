@@ -27,7 +27,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Copy data1",
+						"name": "CP_Souerce_to_Target",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -44,6 +44,7 @@
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
 									"recursive": true,
+									"wildcardFileName": "*",
 									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
@@ -80,11 +81,44 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "DS_TARGET",
+								"referenceName": "DS_TAR",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						]
+					},
+					{
+						"name": "Delete1",
+						"type": "Delete",
+						"dependsOn": [
+							{
+								"activity": "CP_Souerce_to_Target",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataset": {
+								"referenceName": "DS_SOR_ADLS",
+								"type": "DatasetReference",
+								"parameters": {}
+							},
+							"enableLogging": false,
+							"storeSettings": {
+								"type": "AzureBlobFSReadSettings",
+								"recursive": true,
+								"enablePartitionDiscovery": false
+							}
+						}
 					}
 				],
 				"policy": {
@@ -94,7 +128,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/DS_SOR_ADLS')]",
-				"[concat(variables('factoryId'), '/datasets/DS_TARGET')]"
+				"[concat(variables('factoryId'), '/datasets/DS_TAR')]"
 			]
 		},
 		{
@@ -385,8 +419,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileName": "annual-enterprise-survey-2024-financial-year-provisional.csv",
-						"fileSystem": "sink"
+						"fileSystem": "source"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
@@ -400,7 +433,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DS_TARGET')]",
+			"name": "[concat(parameters('factoryName'), '/DS_TAR')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -413,7 +446,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileSystem": "source"
+						"fileSystem": "sink"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
