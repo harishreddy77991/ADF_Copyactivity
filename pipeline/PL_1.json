@@ -55,7 +55,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_TARGET",
+						"referenceName": "DS_TAR",
 						"type": "DatasetReference"
 					}
 				]
