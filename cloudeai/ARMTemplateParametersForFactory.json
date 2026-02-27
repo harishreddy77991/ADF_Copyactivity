@@ -5,14 +5,8 @@
 		"factoryName": {
 			"value": "cloudeai"
 		},
-		"ADS_Sou2_accountKey": {
-			"value": ""
-		},
 		"LS_Sou_ADLS_accountKey": {
 			"value": ""
-		},
-		"ADS_Sou2_properties_typeProperties_url": {
-			"value": "https://unitechrastg.dfs.core.windows.net/"
 		},
 		"LS_Sou_ADLS_properties_typeProperties_url": {
 			"value": "https://unitechrastg.dfs.core.windows.net/"

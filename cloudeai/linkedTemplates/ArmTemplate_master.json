@@ -7,17 +7,9 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "cloudeai"
 		},
-		"ADS_Sou2_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'ADS_Sou2'"
-		},
 		"LS_Sou_ADLS_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_Sou_ADLS'"
-		},
-		"ADS_Sou2_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://unitechrastg.dfs.core.windows.net/"
 		},
 		"LS_Sou_ADLS_properties_typeProperties_url": {
 			"type": "string",
@@ -50,14 +42,8 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"ADS_Sou2_accountKey": {
-						"value": "[parameters('ADS_Sou2_accountKey')]"
-					},
 					"LS_Sou_ADLS_accountKey": {
 						"value": "[parameters('LS_Sou_ADLS_accountKey')]"
-					},
-					"ADS_Sou2_properties_typeProperties_url": {
-						"value": "[parameters('ADS_Sou2_properties_typeProperties_url')]"
 					},
 					"LS_Sou_ADLS_properties_typeProperties_url": {
 						"value": "[parameters('LS_Sou_ADLS_properties_typeProperties_url')]"
