@@ -174,7 +174,8 @@
 								"value": "@activity('Filter_csv_files').output.value",
 								"type": "Expression"
 							},
-							"isSequential": true,
+							"isSequential": false,
+							"batchCount": 10,
 							"activities": [
 								{
 									"name": "Copy_Dynamic_csv_File",
