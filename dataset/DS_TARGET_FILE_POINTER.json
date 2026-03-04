@@ -1,0 +1,33 @@
+{
+	"name": "DS_TARGET_FILE_POINTER",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Sou_ADLS",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"TarFileName": {
+				"type": "string"
+			},
+			"TarFolderName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().TarFileName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().TarFolderName",
+					"type": "Expression"
+				},
+				"fileSystem": "brongcontainer"
+			}
+		}
+	}
+}
