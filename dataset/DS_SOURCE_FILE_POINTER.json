@@ -1,0 +1,26 @@
+{
+	"name": "DS_SOURCE_FILE_POINTER",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Sou_ADLS",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"SrcFileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().SrcFileName",
+					"type": "Expression"
+				},
+				"fileSystem": "brongcontainer"
+			}
+		}
+	}
+}
