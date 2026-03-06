@@ -113,10 +113,6 @@
 													"TarFileName": {
 														"value": "@item().name",
 														"type": "Expression"
-													},
-													"TarFolderName": {
-														"value": "@split(item().name,'.' )[1]",
-														"type": "Expression"
 													}
 												}
 											}
