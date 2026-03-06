@@ -10,6 +10,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@inputfiles/",
+					"type": "Expression"
+				},
 				"fileSystem": "brongcontainer"
 			}
 		}
