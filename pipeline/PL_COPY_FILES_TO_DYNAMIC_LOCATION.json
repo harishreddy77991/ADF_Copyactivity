@@ -33,7 +33,7 @@
 				}
 			},
 			{
-				"name": "For_Each_File",
+				"name": "ForEach1",
 				"type": "ForEach",
 				"dependsOn": [
 					{
@@ -49,21 +49,21 @@
 						"value": "@activity('GetFileMetaDataInfo').output.childItems",
 						"type": "Expression"
 					},
-					"batchCount": 50,
+					"isSequential": true,
 					"activities": [
 						{
-							"name": "If_Type_File",
+							"name": "If Condition1",
 							"type": "IfCondition",
 							"dependsOn": [],
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@equals(item().type, 'file')",
+									"value": "@equals(item().type,'File')",
 									"type": "Expression"
 								},
 								"ifTrueActivities": [
 									{
-										"name": "Copy_files",
+										"name": "Copy data1",
 										"type": "Copy",
 										"dependsOn": [],
 										"policy": {
@@ -110,20 +110,21 @@
 												"referenceName": "DS_TARGET_FILE_POINTER",
 												"type": "DatasetReference",
 												"parameters": {
-													"TarFileName": {
-														"value": "@item().name",
+													"TarFolderName": {
+														"value": "@substring(item().name, add(lastIndexOf(item().name,'.'),1), sub(length(item().name), add(lastIndexOf(item().name,'.'),1)))",
 														"type": "Expression"
-													}
+													},
+													"TarFileName": "@item().name"
 												}
 											}
 										]
 									},
 									{
-										"name": "Delete_files",
+										"name": "DeleteSource files",
 										"type": "Delete",
 										"dependsOn": [
 											{
-												"activity": "Copy_files",
+												"activity": "Copy data1",
 												"dependencyConditions": [
 													"Succeeded"
 												]
@@ -139,14 +140,8 @@
 										"userProperties": [],
 										"typeProperties": {
 											"dataset": {
-												"referenceName": "DS_SOURCE_FILE_POINTER",
-												"type": "DatasetReference",
-												"parameters": {
-													"SrcFileName": {
-														"value": "@item().name",
-														"type": "Expression"
-													}
-												}
+												"referenceName": "DS_DELETE_SOURCE_FILES",
+												"type": "DatasetReference"
 											},
 											"enableLogging": false,
 											"storeSettings": {

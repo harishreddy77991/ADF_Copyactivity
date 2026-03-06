@@ -6,6 +6,9 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
+			"TarFolderName": {
+				"type": "string"
+			},
 			"TarFileName": {
 				"type": "string"
 			}
@@ -19,7 +22,10 @@
 					"value": "@dataset().TarFileName",
 					"type": "Expression"
 				},
-				"folderPath": "SqlFiles",
+				"folderPath": {
+					"value": "@dataset().TarFolderName",
+					"type": "Expression"
+				},
 				"fileSystem": "brongcontainer"
 			}
 		}

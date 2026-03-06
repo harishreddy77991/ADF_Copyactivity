@@ -1,0 +1,17 @@
+{
+	"name": "DS_DELETE_SOURCE_FILES",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Sou_ADLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "brongcontainer"
+			}
+		}
+	}
+}
