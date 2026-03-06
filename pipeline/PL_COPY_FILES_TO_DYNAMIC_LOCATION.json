@@ -141,7 +141,13 @@
 										"typeProperties": {
 											"dataset": {
 												"referenceName": "DS_DELETE_SOURCE_FILES",
-												"type": "DatasetReference"
+												"type": "DatasetReference",
+												"parameters": {
+													"delfilename": {
+														"value": "@item().name",
+														"type": "Expression"
+													}
+												}
 											},
 											"enableLogging": false,
 											"storeSettings": {

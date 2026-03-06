@@ -5,13 +5,18 @@
 			"referenceName": "LS_Sou_ADLS",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"delfilename": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Binary",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "item().name",
+					"value": "@dataset().delfilename",
 					"type": "Expression"
 				},
 				"fileSystem": "brongcontainer"
